@@ -6,14 +6,14 @@ import random
 def replace_vcols_object():
     # Remove vcols
     for ob in bpy.context.selected_objects:     # Loops through selected objects
-        bpy.context.scene.objects.active = ob   # Sets current object as active
+        bpy.context.view_layer.objects.active = ob   # Sets current object as active
         while len(ob.data.vertex_colors) > 0:   # Delete vcols
             bpy.ops.mesh.vertex_color_remove()
 
 
     # Add vcols
     for mesh in bpy.context.selected_objects:
-        bpy.context.scene.objects.active = ob   # Sets current object as active
+        bpy.context.view_layer.objects.active = ob   # Sets current object as active
         # Create Vertex Color for each selected meshes
         # bpy.context.selected_objects[0].data.vertex_colors
         mesh.data.vertex_colors.new()
@@ -35,7 +35,7 @@ def replace_vcols_object():
             mesh.data.vertex_colors[0].data[i].color = colR, colG, colB
 
 def replace_vcols_edit():
-    ob = bpy.context.scene.objects.active
+    ob = bpy.context.view_layer.objects.active
     me = ob.data
 
     bpy.ops.object.vertex_group_add()

@@ -2,7 +2,7 @@ import bpy
 
 
 print("--"*40)
-active = bpy.context.scene.objects.active
+active = bpy.context.view_layer.objects.active
 
 objselection = []
 
@@ -13,7 +13,7 @@ for obj in bpy.context.selected_objects:
     if obj.name == active.name:
         obj.select =False
     else:
-        bpy.context.scene.objects.active = obj
+        bpy.context.view_layer.objects.active = obj
 
 bpy.ops.object.convert(target='MESH')
 
@@ -39,11 +39,11 @@ bpy.context.object.modifiers["Subsurf"].show_only_control_edges = True
 bpy.ops.object.origin_set(type='ORIGIN_GEOMETRY')
 
 
-active = bpy.context.scene.objects.active
+active = bpy.context.view_layer.objects.active
 
 for obj in bpy.context.selected_objects:
     if obj.name != active.name:
-        bpy.context.scene.objects.active = obj
+        bpy.context.view_layer.objects.active = obj
        
 bpy.ops.hops.bool_difference(boolean_method='BMESH')
 C.space_data.show_only_render = False

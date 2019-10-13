@@ -13,5 +13,5 @@ bpy.ops.object.mode_set(mode='OBJECT')
 
 
 #for obj in bpy.context.selected_objects:
-    #bpy.context.scene.objects.active = obj
+    #bpy.context.view_layer.objects.active = obj
     

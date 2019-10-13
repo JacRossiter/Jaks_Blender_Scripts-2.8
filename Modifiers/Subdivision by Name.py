@@ -3,7 +3,7 @@ import bpy
 # Adds/Sets subdivision modifier to have the same number of levels as the '_subd' as definied in the object name. 
 # Works for all selected objects.
 for obj in bpy.context.selected_objects:
-    bpy.context.scene.objects.active = obj
+    bpy.context.view_layer.objects.active = obj
     subd_flag = False
 
     if "_subd1" in obj.name:

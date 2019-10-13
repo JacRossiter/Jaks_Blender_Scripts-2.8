@@ -1,7 +1,7 @@
 import bpy
 
 print("--"*40)
-active = bpy.context.scene.objects.active
+active = bpy.context.view_layer.objects.active
 
 #Creates List of Selected Objects
 objselection = []
@@ -18,7 +18,7 @@ for obj in bpy.context.selected_objects:
     if obj.name == active.name:
         obj.select =False
     else:
-        bpy.context.scene.objects.active = obj
+        bpy.context.view_layer.objects.active = obj
 
 bpy.ops.object.mode_set(mode='EDIT')
 

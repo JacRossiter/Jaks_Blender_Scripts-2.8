@@ -2,7 +2,7 @@ import bpy
 
 # Minimise Modifiers
 
-o = bpy.context.scene.objects.active
+o = bpy.context.view_layer.objects.active
 x = True
 
 if o.modifiers[0].show_expanded:

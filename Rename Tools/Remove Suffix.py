@@ -3,9 +3,9 @@ import bpy
 #Delete '_high' or '_low' Suffix
 
 for obj in bpy.context.selected_objects:
-    bpy.context.scene.objects.active = obj
+    bpy.context.view_layer.objects.active = obj
 
-    newName = (bpy.context.scene.objects.active.name)
+    newName = (bpy.context.view_layer.objects.active.name)
 
     o = newName[-5:]
 
@@ -14,4 +14,4 @@ for obj in bpy.context.selected_objects:
     else:
         newName = newName[:-4]
         
-    bpy.context.scene.objects.active.name = newName
+    bpy.context.view_layer.objects.active.name = newName

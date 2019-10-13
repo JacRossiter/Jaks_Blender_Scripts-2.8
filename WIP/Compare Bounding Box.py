@@ -17,9 +17,9 @@ obj = bpy.context.object
 
 for obj in bpy.context.selected_objects:
     if "_low" in obj.name[-4:]:
-        bpy.context.scene.objects.active = obj
+        bpy.context.view_layer.objects.active = obj
         
-        low = bpy.context.scene.objects.active
+        low = bpy.context.view_layer.objects.active
         
 # Defines selected but not active objects
 

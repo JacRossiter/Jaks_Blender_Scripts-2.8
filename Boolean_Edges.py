@@ -1,6 +1,6 @@
 import bpy
 
-active = bpy.context.scene.objects.active
+active = bpy.context.view_layer.objects.active
 
 bpy.ops.mesh.duplicate()
 bpy.ops.mesh.separate(type='SELECTED')
@@ -10,7 +10,7 @@ bpy.ops.object.mode_set(mode='OBJECT')
 
 for obj in bpy.context.selected_objects:
     if obj.name != active.name:
-        bpy.context.scene.objects.active = obj
+        bpy.context.view_layer.objects.active = obj
 
 bpy.ops.object.mode_set(mode='EDIT')
 
@@ -44,11 +44,11 @@ bpy.context.object.modifiers["Subsurf"].levels = 4
 bpy.ops.object.origin_set(type='ORIGIN_GEOMETRY')
 
 
-active = bpy.context.scene.objects.active
+active = bpy.context.view_layer.objects.active
 
 for obj in bpy.context.selected_objects:
     if obj.name != active.name:
-        bpy.context.scene.objects.active = obj
+        bpy.context.view_layer.objects.active = obj
        
 bpy.ops.hops.bool_difference(boolean_method='BMESH')
 

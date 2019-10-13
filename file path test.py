@@ -7,7 +7,7 @@ from bpy.props import StringProperty, CollectionProperty
 from bpy.types import Operator, OperatorFileListElement
 
 current_selected_obj = bpy.context.selected_objects
-active_ob = bpy.context.scene.objects.active
+active_ob = bpy.context.view_layer.objects.active
 name = active_ob.name
 
 current_unit_system = bpy.context.scene.unit_settings.system
@@ -30,7 +30,7 @@ bpy.context.space_data.pivot_point = 'CURSOR'
 # Edit Transforms for Unity
 for ob in current_selected_obj:
     if ob.type == 'MESH':
-        bpy.context.scene.objects.active = ob
+        bpy.context.view_layer.objects.active = ob
 
         # X-rotation fix
         bpy.ops.object.mode_set(mode='EDIT')
@@ -46,7 +46,7 @@ if not os.path.exists(path):
     os.makedirs(path)
 
 # Revert Active Object
-bpy.context.scene.objects.active = active_ob
+bpy.context.view_layer.objects.active = active_ob
 
 # Export as One FBX
 bpy.ops.export_scene.fbx(filepath=str(path + name + '.fbx'), version='BIN7400', ui_tab='MAIN', use_selection=True, global_scale=1, apply_unit_scale=True)
@@ -54,7 +54,7 @@ bpy.ops.export_scene.fbx(filepath=str(path + name + '.fbx'), version='BIN7400', 
 # Revert Transforms
 for ob in current_selected_obj:
     if ob.type == 'MESH':
-        bpy.context.scene.objects.active = ob
+        bpy.context.view_layer.objects.active = ob
          
         # Revert Transforms
         bpy.ops.object.mode_set(mode='EDIT')
@@ -66,4 +66,4 @@ for ob in current_selected_obj:
 
         
 # Revert Active Object
-bpy.context.scene.objects.active = active_ob
+bpy.context.view_layer.objects.active = active_ob
