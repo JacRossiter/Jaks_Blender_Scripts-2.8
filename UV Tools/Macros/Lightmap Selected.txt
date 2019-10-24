@@ -1,4 +1,0 @@
-import bpy
-
-for ob in bpy.context.selected_objects:     # Loops through sselected objects
-        bpy.context.view_layer.objects.active = ob

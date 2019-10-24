@@ -3,7 +3,7 @@ import bpy
 # Courtesy of Martin Durhuus for this more elegant version
 
 for obj in bpy.context.selected_objects: # Creates list of uv maps that need deleting
-    uvmaps = obj.data.uv_textures
+    uvmaps = obj.data.uv_layers
     while len(uvmaps) > 1:
         if uvmaps[-1].name == 'UVMap':
             uvmaps.remove(uvmaps[0])

@@ -14,7 +14,7 @@ bpy.ops.object.vertex_group_deselect()
 bpy.ops.mesh.hide(unselected=False)
 bpy.ops.object.editmode_toggle()
 
-bpy.ops.hops.draw_uv()  ## Remove this if you do not have Hard Ops
+#bpy.ops.hops.draw_uv()  ## Remove this if you do not have Hard Ops
 
 bpy.ops.object.editmode_toggle()
 bpy.ops.mesh.select_all(action='DESELECT')
